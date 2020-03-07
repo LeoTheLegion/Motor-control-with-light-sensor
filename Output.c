@@ -17,7 +17,7 @@ void setOutput(int bit, PowerState state){
             P1OUT |= bit;
             break;
         case OFF:
-            P1DIR &= ~(bit);
+            P1OUT &= ~(bit);
             break;
         case TOGGLE:
             P1OUT ^= bit;

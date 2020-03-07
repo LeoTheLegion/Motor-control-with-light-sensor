@@ -15,13 +15,13 @@ void setup(){
 
     setupOutput();    //Declare OUTPUTS
     setupInput(); //Declare INPUTS
-    setOutput((LED1 | LED2),ON); //MAKE PIN0 HIGH INITIALLY
+    setOutput((LED1 | LED2),ON); //MAKE PIN0&6 HIGH INITIALLY
 }
 
 void loop(){
     while(1){
            if(getInput(BUTTON)){
-               setOutput((LED1 | LED2),TOGGLE); ////toggle the bits
+               setOutput((LED1),TOGGLE); ////toggle the bits
            }
        }
 }
