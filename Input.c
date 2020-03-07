@@ -1,3 +1,10 @@
+/*
+ * Intput.c
+ *
+ *  Created on: Mar 6, 2020
+ *      Author: LeoTheLegion
+ */
+
 #include "Input.h"
 
 #define BUTTON BIT3

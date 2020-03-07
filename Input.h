@@ -1,11 +1,19 @@
+/*
+ * Input.h
+ *
+ *  Created on: Mar 6, 2020
+ *      Author: LeoTheLegion
+ */
+
+#ifndef INPUT_H_
+#define INPUT_H_
+
+
 #include <msp430.h>
 #include <stdbool.h>
 
-/*
- *
- * Since it's a hugggge pain to get classes working in C. Lets pretend the file is a class.... :(
- *
- * */
-
 void setupInput(void);
 bool getInput(int bit);
+
+
+#endif /* INPUT_H_ */

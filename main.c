@@ -1,5 +1,6 @@
 #include <msp430.h> 
 #include <Input.h>
+#include <Output.h>
 
 #define LED1 BIT0
 #define LED2 BIT6
@@ -12,15 +13,15 @@
 void setup(){
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-    P1DIR |= (LED1 | LED2);    //Declare OUTPUTS
+    setupOutput();    //Declare OUTPUTS
     setupInput(); //Declare INPUTS
-    P1OUT = (LED1 | LED2); //MAKE PIN0 HIGH INITIALLY
+    setOutput((LED1 | LED2),ON); //MAKE PIN0 HIGH INITIALLY
 }
 
 void loop(){
     while(1){
            if(getInput(BUTTON)){
-               P1OUT ^= (LED1 | LED2);   ////toggle the bits
+               setOutput((LED1 | LED2),TOGGLE); ////toggle the bits
            }
        }
 }
