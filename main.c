@@ -10,6 +10,8 @@
  *Our driver.
  * */
 
+float v;
+
 void setup(){
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
@@ -22,6 +24,8 @@ void loop(){
     while(1){
            if(getInput(BUTTON)){
                setOutput((LED1),TOGGLE); ////toggle the bits
+
+           v = getInput_raw(BUTTON);
            }
        }
 }

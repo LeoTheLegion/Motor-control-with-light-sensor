@@ -23,4 +23,19 @@ bool getInput(int bit){// works like a OnPressed for now...
     return false;
 }
 
+float getInput_raw(int bit){
+    ADC10CTL0 = SREF_0|ADC10SHT_2|ADC10ON;
 
+    ADC10CTL1 = INCH_3|SHS_0\
+    |ADC10DIV_0|ADC10SSEL_0|CONSEQ_0;
+
+    ADC10AE0 = BIT2;
+
+    ADC10CTL0 |=ENC;
+    ADC10CTL0 |= ADC10SC;
+    while(ADC10CTL1 & BUSY);
+
+    volatile float voltage;
+    voltage = ((ADC10MEM*3.55)/0x03FF);
+    return voltage;
+}

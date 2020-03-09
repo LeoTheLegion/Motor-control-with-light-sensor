@@ -14,6 +14,6 @@
 
 void setupInput(void);
 bool getInput(int bit);
-
+float getInput_raw(int bit);
 
 #endif /* INPUT_H_ */
