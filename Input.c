@@ -7,10 +7,8 @@
 
 #include "Input.h"
 
-#define BUTTON BIT3
-
-void setupInput(void){
-    P1DIR &= ~(BUTTON);  //Declare Inputs
+void setupInput(int bit){
+    P1DIR &= ~(bit);  //Declare Inputs
 }
 
 bool getInput(int bit){// works like a OnPressed for now...

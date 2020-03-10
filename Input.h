@@ -12,7 +12,7 @@
 #include <msp430.h>
 #include <stdbool.h>
 
-void setupInput(void);
+void setupInput(int bit);
 bool getInput(int bit);
 float getInput_raw(int bit);
 

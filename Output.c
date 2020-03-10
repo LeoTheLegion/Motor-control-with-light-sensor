@@ -7,8 +7,8 @@
 
 #include "Output.h"
 
-void setupOutput(void){
-    P1DIR |= (LED1 | LED2);
+void setupOutput(int bit){
+    P1DIR |= bit;
 }
 
 void setOutput(int bit, PowerState state){
