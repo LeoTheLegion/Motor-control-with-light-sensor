@@ -1,12 +1,11 @@
 #include <msp430.h> 
-#include <Input.h>
 #include <Output.h>
-#include <LightSensorKeyPad.h>
+#include <Authenticator.h>
 
-#define LED1 BIT0
-#define LED2 BIT6
-#define LED3 BIT1
+//output
+#define MOTOR BIT2
 
+//input
 #define BUTTON BIT3
 
 /*
@@ -18,33 +17,19 @@
 void setup(){
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-    setupOutput((LED1 | LED2 | LED3));    //Declare OUTPUTS
+    setupOutput((MOTOR));    //Declare OUTPUTS
     setupInput(BUTTON); //Declare INPUTS
-    setOutput((LED1 | LED2 | LED3),ON); //MAKE PIN0&6 HIGH INITIALLY
+    setOutput((MOTOR),ON); //MAKE PIN0&6 HIGH INITIALLY
 
-    SetupLightSensorKeyPad();
-    setTickRate(250);
+    setupAuthenticator();
 }
 
 void loop(){
     while(1){
-           UpdateLightSensorKeyPad();
-           step();
-
-          if(getKey() == HIGH){
-              setOutput((LED1),ON);
-              setOutput((LED2),OFF);
-          }
-          else if (getKey() == LOW){
-              setOutput((LED2),ON);
-              setOutput((LED1),OFF);
+          if(isPasswordValid()){
+              setOutput(MOTOR,ON);
           }else{
-              setOutput((LED1),OFF);
-              setOutput((LED2),OFF);
-          }
-
-          if(tick()){
-              setOutput((LED3),TOGGLE);
+              setOutput(MOTOR,OFF);
           }
        }
 }

@@ -27,7 +27,7 @@ float getInput_raw(int bit){
     ADC10CTL1 = INCH_3|SHS_0\
     |ADC10DIV_0|ADC10SSEL_0|CONSEQ_0;
 
-    ADC10AE0 = BIT2;
+    ADC10AE0 = bit;
 
     ADC10CTL0 |=ENC;
     ADC10CTL0 |= ADC10SC;

@@ -10,8 +10,8 @@
 
 #include <stdbool.h>
 
-int tickRate = 0;
-int steps = 0;
+static int tickRate = 0;
+static int steps = 0;
 
 void setTickRate(int ms);
 
