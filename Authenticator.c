@@ -25,7 +25,7 @@ void setupAuthenticator(){
 
 bool isPasswordValid(){
     poll();
-    return (passwordOnTheKeyBoard == password);
+    return (pass.saved == pass.currentOnKeyBoard);
 }
 ////////////////////////////////////////
 void poll(){
@@ -50,9 +50,9 @@ void poll(){
     }
 }
 
-void updatePassword(int x){
-    passwordOnTheKeyBoard = passwordOnTheKeyBoard << 1;
-    passwordOnTheKeyBoard += x;
+void updatePassword(unsigned int x){
+    pass.currentOnKeyBoard = pass.currentOnKeyBoard << 1;
+    pass.currentOnKeyBoard += x;
 }
 
 void HandleDebugLEDs(Key key){

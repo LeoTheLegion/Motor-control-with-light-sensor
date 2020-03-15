@@ -14,14 +14,18 @@
 #include <LightSensorKeyPad.h>
 #include <Timer.h>
 
-static int password = 2;
-static int passwordOnTheKeyBoard = 0;
+struct password{
+    unsigned int saved: 3;
+    unsigned int currentOnKeyBoard: 3;
+};
+
+static struct password pass = {5,0};
 
 void setupAuthenticator(void);
 bool isPasswordValid(void);
 
 void poll(void);
-void updatePassword(int x);
+void updatePassword(unsigned int x);
 
 void HandleDebugLEDs(Key key);
 #endif /* AUTHENTICATOR_H_ */
